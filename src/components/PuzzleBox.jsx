@@ -4,30 +4,32 @@ import { StartConfig } from "../lib/config.js";
 import Tile from "./Tile.jsx";
 
 function PuzzleBox() {
-    const { isFinished, goalTileIndex, updatePosition, getBounds } = useGameEngine();
+    const { isFinished, goalTileIndex, positions, updatePosition, getBounds, setScore } = useGameEngine();
 
     return (
         <div
-            className={`mx-auto mt-20 ${PuzzleBoxConfig.Colors.bg} ${PuzzleBoxConfig.Colors.border}`}
+            className={`${PuzzleBoxConfig.Colors.bg} ${PuzzleBoxConfig.Colors.border}`}
             style={{
                 width: `${PuzzleBoxConfig.Dimensions.width + PuzzleBoxConfig.Dimensions.borderWidth * 2}px`,
                 height: `${PuzzleBoxConfig.Dimensions.height + PuzzleBoxConfig.Dimensions.borderWidth * 2}px`,
                 borderWidth: `${PuzzleBoxConfig.Dimensions.borderWidth}px`
             }}
         >
-            {StartConfig.map((tile, index) => (
+            {positions.map((tile, index) => (
                 <Tile
                     key={index}
                     index={index}
-                    defaultPosition={tile.position}
+                    x={tile.left}
+                    y={tile.top}
                     bounds={getBounds(index)}
                     isGoal={index === goalTileIndex}
                     disabled={isFinished}
-                    width={tile.type.Dimensions.width}
-                    height={tile.type.Dimensions.height}
-                    bgColor={tile.type.Colors.bg}
-                    borderColor={tile.type.Colors.border}
+                    width={StartConfig[index].type.Dimensions.width}
+                    height={StartConfig[index].type.Dimensions.height}
+                    bgColor={StartConfig[index].type.Colors.bg}
+                    borderColor={StartConfig[index].type.Colors.border}
                     updatePosition={updatePosition}
+                    updateScore={() => setScore((current) => current + 1)}
                 />
             ))}
             <div

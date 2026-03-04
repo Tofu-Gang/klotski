@@ -10,6 +10,7 @@ export function GameEngineProvider({ children }) {
         top: tile.position.y,
         bottom: tile.position.y + tile.type.Dimensions.height
     })));
+    const [score, setScore] = useState(0);
     const [isFinished, setIsFinished] = useState(false);
 
     const goalTileIndex = StartConfig.map((tile) => tile.type).indexOf(Tiles.Goal);
@@ -24,6 +25,17 @@ export function GameEngineProvider({ children }) {
             } : tile
         )));
         setIsFinished(index === goalTileIndex && newX === PuzzleBoxConfig.Dimensions.width / 4 && newY === PuzzleBoxConfig.Dimensions.height - Tiles.Goal.Dimensions.height);
+    }
+
+    function reset() {
+        setPositions(StartConfig.map((tile) => ({
+            left: tile.position.x,
+            right: tile.position.x + tile.type.Dimensions.width,
+            top: tile.position.y,
+            bottom: tile.position.y + tile.type.Dimensions.height
+        })));
+        setScore(0);
+        setIsFinished(false);
     }
 
     function getBounds(index) {
@@ -77,7 +89,7 @@ export function GameEngineProvider({ children }) {
 
     return (
         <GameEngine.Provider
-            value={{ isFinished, goalTileIndex, updatePosition, getBounds }}
+            value={{ isFinished, goalTileIndex, positions, updatePosition, getBounds, score, setScore, reset }}
         >
             {children}
         </GameEngine.Provider>
