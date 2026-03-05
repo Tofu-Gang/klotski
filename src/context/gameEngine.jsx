@@ -11,6 +11,7 @@ export function GameEngineProvider({ children }) {
         bottom: tile.position.y + tile.type.Dimensions.height
     })));
     const [score, setScore] = useState(0);
+    const [ scoreVisible, setScoreVisible ] = useState(true);
     const [isFinished, setIsFinished] = useState(false);
 
     const goalTileIndex = StartConfig.map((tile) => tile.type).indexOf(Tiles.Goal);
@@ -89,7 +90,7 @@ export function GameEngineProvider({ children }) {
 
     return (
         <GameEngine.Provider
-            value={{ isFinished, goalTileIndex, positions, updatePosition, getBounds, score, setScore, reset }}
+            value={{ isFinished, goalTileIndex, positions, updatePosition, getBounds, score, setScore, reset, scoreVisible, setScoreVisible }}
         >
             {children}
         </GameEngine.Provider>
