@@ -3,11 +3,12 @@ import PuzzleBox from "./components/PuzzleBox.jsx";
 import ScoreDisplay from "./components/ScoreDisplay.jsx";
 import { useGameEngine } from "./context/gameEngine.jsx";
 import Navbar from "./components/Navbar.jsx";
-import Controls from "./components/Controls.jsx";
 import Title from "./components/Title.jsx";
+import WorryButton from "./components/WorryButton.jsx";
+import ResetButton from "./components/ResetButton.jsx";
 
 function App() {
-    const { score, reset, scoreVisible, setScoreVisible } = useGameEngine();
+    const { score, scoreVisible } = useGameEngine();
 
     return (
         <>
@@ -24,8 +25,9 @@ function App() {
                     <FinishPopup/>
                     <div className="grow basis-1 hidden md:block"><ScoreDisplay value={81} label="Rekord świata" inline={false} /></div>
                 </div>
-                <div className="hidden md:block my-10 ">
-                    <Controls scoreVisible={scoreVisible} setScoreVisible={setScoreVisible} reset={reset} textSize="text-5xl" padding="p-3" />
+                <div className="hidden md:flex my-10 justify-center items-center gap-5">
+                    <WorryButton />
+                    <ResetButton />
                 </div>
             </div>
         </>

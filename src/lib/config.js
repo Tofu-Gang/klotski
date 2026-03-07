@@ -10,7 +10,7 @@ export const PuzzleBoxConfig = {
 export const Tiles = {
     Vertical: {
         Colors: {
-            bg: "bg-yellow-800"
+            bg: "bg-tileLong"
         },
         Dimensions: {
             width: GRID_SIZE,
@@ -19,7 +19,7 @@ export const Tiles = {
     },
     Horizontal: {
         Colors: {
-            bg: "bg-yellow-800"
+            bg: "bg-tileLong"
         },
         Dimensions: {
             width: GRID_SIZE * 2,
@@ -28,7 +28,7 @@ export const Tiles = {
     },
     Square: {
         Colors: {
-            bg: "bg-gray-500"
+            bg: "bg-tileSquare"
         },
         Dimensions: {
             width: GRID_SIZE,
@@ -37,7 +37,7 @@ export const Tiles = {
     },
     Goal: {
         Colors: {
-            bg: "bg-black"
+            bg: "bg-goalSquare"
         },
         Dimensions: {
             width: GRID_SIZE * 2,

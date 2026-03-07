@@ -7,7 +7,7 @@ function PuzzleBox() {
 
     return (
         <div
-            className="w-85 h-105 bg-amber-400 border-10 border-yellow-950"
+            className="w-85 h-105 bg-puzzleBox border-10 border-puzzleBoxBorder"
         >
             {positions.map((tile, index) => (
                 <Tile
@@ -27,7 +27,7 @@ function PuzzleBox() {
             ))}
             {/* the bottom opening */}
             <div
-                className="relative w-40 h-2.5 left-20 top-100 bg-amber-400"
+                className="relative w-40 h-2.5 left-20 top-100 bg-puzzleBox"
             />
         </div>
     );

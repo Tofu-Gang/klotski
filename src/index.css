@@ -1,7 +1,24 @@
 @import "tailwindcss";
 
 body {
-    @apply bg-amber-200;
+    @apply bg-body;
 }
 
 /* TODO: define color palette */
+@theme {
+    --color-body: oklch(92.4% 0.12 95.746);
+    --color-puzzleBox: oklch(82.8% 0.189 84.429);
+    --color-puzzleBoxBorder: oklch(28.6% 0.066 53.813);
+    --color-finishPopup: oklch(82.8% 0.189 84.429);
+    --color-finishPopupBorder: oklch(28.6% 0.066 53.813);
+    --color-tileLong: oklch(47.6% 0.114 61.907);
+    --color-tileSquare: oklch(55.1% 0.027 264.364);
+    --color-goalSquare: #000;
+    --color-controlHoverChecked: oklch(82.8% 0.189 84.429);
+    --color-navbar: oklch(28.6% 0.066 53.813);
+    --color-navbarBorder: oklch(28.6% 0.066 53.813);
+    --color-navbarItem: oklch(92.4% 0.12 95.746);
+    --color-worryCheckbox: #000;
+    --color-worryCheckboxBorder: #000;
+    --color-textColor: #000;
+}

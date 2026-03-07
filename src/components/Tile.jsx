@@ -40,7 +40,7 @@ function Tile({ index, x, y, bounds, isGoal, disabled, width, height, bgColor, u
                 ref={ref}
                 className={`
                     absolute ${isGoal && disabled && "invisible mt-25"} 
-                    ${bgColor} border border-amber-400 
+                    ${bgColor} border border-puzzleBox 
                     ${!disabled && "cursor-pointer"} ${isGoal && disabled ? "opacity-0" : "opacity-100"}
                     transition-all ease-out ${isGoal && disabled ? "duration-1000" : "duration-200"}`}
                 style={{ width, height }}
