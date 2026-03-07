@@ -1,9 +1,9 @@
 import Draggable from "react-draggable";
 import { useRef } from "react";
-import { PuzzleBoxConfig } from "../lib/config.js";
 import { useState } from "react";
+import { GRID_SIZE } from "../lib/config.js";
 
-function Tile({ index, x, y, bounds, isGoal, disabled, width, height, bgColor, borderColor, updatePosition, updateScore }) {
+function Tile({ index, x, y, bounds, isGoal, disabled, width, height, bgColor, updatePosition, updateScore }) {
     const ref = useRef(null);
     const [onDragStartPos, setOnDragStartPos] = useState({x, y});
 
@@ -34,18 +34,16 @@ function Tile({ index, x, y, bounds, isGoal, disabled, width, height, bgColor, b
             onStart={onStart}
             onDrag={onDrag}
             onStop={onStop}
-            grid={[PuzzleBoxConfig.Dimensions.width / 4, PuzzleBoxConfig.Dimensions.height / 5]}
+            grid={[GRID_SIZE, GRID_SIZE]}
         >
             <div
                 ref={ref}
-                className={`${bgColor} absolute border ${borderColor} ${!disabled && "cursor-pointer"} ${isGoal && disabled && "invisible"}`}
-                style={{
-                    width,
-                    height,
-                    marginTop: isGoal && disabled && "100px",
-                    opacity: isGoal && disabled ? "0" : "1",
-                    transition: isGoal && disabled ? "all 1s ease-out": "all 0.2s ease-out"
-                }}
+                className={`
+                    absolute ${isGoal && disabled && "invisible mt-25"} 
+                    ${bgColor} border border-puzzleBox 
+                    ${!disabled && "cursor-pointer"} ${isGoal && disabled ? "opacity-0" : "opacity-100"}
+                    transition-all ease-out ${isGoal && disabled ? "duration-1000" : "duration-200"}`}
+                style={{ width, height }}
             />
         </Draggable>
     );
