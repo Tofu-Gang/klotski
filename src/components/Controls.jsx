@@ -1,25 +1,31 @@
 function Controls({ scoreVisible, setScoreVisible, reset, textSize, padding }) {
     return (
-        <div className="flex justify-center items-center gap-1 md:gap-5">
-            <button
+        <div className="flex justify-center items-center md:gap-5 divide-x">
+            <div
                 onClick={() => setScoreVisible((current) => !current)}
-                className={`${textSize} font-extrabold font-[Tiny5] border md:border-8 border-black ${padding} cursor-pointer hover:bg-amber-400 transition`}
+                className={`
+                    ${textSize} font-extrabold font-[Tiny5] 
+                    md:border-solid md:border-8 md:border-black 
+                    ${padding} cursor-pointer hover:bg-amber-400 transition
+                `}
             >
-                <input
-                    className={"hidden md:inline-block mr-3 h-8 w-8 cursor-pointer transition-all appearance-none border-8 border-black checked:bg-black"}
-                    type="checkbox"
-                    id="scoreVisible"
-                    name="scoreVisible"
-                    checked={!scoreVisible}
-                    onChange={() => setScoreVisible((current) => !current)}
+                <div
+                    className={`
+                        hidden md:inline-block mr-3 h-8 w-8 
+                        border-8 border-black ${!scoreVisible && "bg-black"} transition
+                    `}
                 />Nie martw się
-            </button>
-            <button
+            </div>
+            <div
                 onClick={reset}
-                className={`${textSize} font-extrabold font-[Tiny5] border md:border-8 border-black ${padding} cursor-pointer hover:bg-amber-400 transition`}
+                className={`
+                    ${textSize} font-extrabold font-[Tiny5] 
+                    md:border-solid md:border-8 md:border-black 
+                    ${padding} cursor-pointer hover:bg-amber-400 transition
+                `}
             >
                 Zresetować
-            </button>
+            </div>
         </div>
     );
 }

@@ -1,5 +1,5 @@
 import { useState, createContext, useContext } from "react";
-import { PuzzleBoxConfig, StartConfig, Tiles } from "../lib/config.js";
+import { GRID_SIZE, PuzzleBoxConfig, StartConfig, Tiles } from "../lib/config.js";
 
 const GameEngine = createContext();
 
@@ -25,7 +25,7 @@ export function GameEngineProvider({ children }) {
                 bottom: newY + StartConfig[i].type.Dimensions.height
             } : tile
         )));
-        setIsFinished(index === goalTileIndex && newX === PuzzleBoxConfig.Dimensions.width / 4 && newY === PuzzleBoxConfig.Dimensions.height - Tiles.Goal.Dimensions.height);
+        setIsFinished(index === goalTileIndex && newX === GRID_SIZE && newY === GRID_SIZE * 3);
     }
 
     function reset() {

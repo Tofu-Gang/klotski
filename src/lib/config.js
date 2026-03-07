@@ -1,54 +1,47 @@
+export const GRID_SIZE = 80;
+
 export const PuzzleBoxConfig = {
-    Colors: {
-        bg: "bg-amber-400",
-        border: "border-yellow-950",
-    },
     Dimensions: {
-        borderWidth: 10,
-        width: 320,
-        height: 400
+        width: GRID_SIZE * 4,
+        height: GRID_SIZE * 5
     }
 }
 
 export const Tiles = {
     Vertical: {
         Colors: {
-            bg: "bg-yellow-800",
-            border: "border-amber-400"
+            bg: "bg-yellow-800"
         },
         Dimensions: {
-            width: PuzzleBoxConfig.Dimensions.width / 4,
-            height: PuzzleBoxConfig.Dimensions.height / 2.5
+            width: GRID_SIZE,
+            height: GRID_SIZE * 2
         }
     },
     Horizontal: {
         Colors: {
-            bg: "bg-yellow-800",
-            border: "border-amber-400"
+            bg: "bg-yellow-800"
         },
         Dimensions: {
-            width: PuzzleBoxConfig.Dimensions.width / 2,
-            height: PuzzleBoxConfig.Dimensions.height / 5
+            width: GRID_SIZE * 2,
+            height: GRID_SIZE
         }
     },
     Square: {
         Colors: {
-            bg: "bg-gray-500",
-            border: "border-amber-400"
+            bg: "bg-gray-500"
         },
         Dimensions: {
-            width: PuzzleBoxConfig.Dimensions.width / 4,
-            height: PuzzleBoxConfig.Dimensions.height / 5
+            width: GRID_SIZE,
+            height: GRID_SIZE
         }
     },
     Goal: {
         Colors: {
-            bg: "bg-black",
-            border: "border-amber-400"
+            bg: "bg-black"
         },
         Dimensions: {
-            width: PuzzleBoxConfig.Dimensions.width / 2,
-            height: PuzzleBoxConfig.Dimensions.height / 2.5
+            width: GRID_SIZE * 2,
+            height: GRID_SIZE * 2
         }
     }
 }
@@ -60,38 +53,38 @@ export const StartConfig = [
     },
     {
         type: Tiles.Vertical,
-        position: { x: PuzzleBoxConfig.Dimensions.width - Tiles.Vertical.Dimensions.width, y: 0 }
+        position: { x: GRID_SIZE * 3, y: 0 }
     },
     {
         type: Tiles.Vertical,
-        position: { x: 0, y: Tiles.Vertical.Dimensions.height }
+        position: { x: 0, y: GRID_SIZE * 2 }
     },
     {
         type: Tiles.Vertical,
-        position: { x: PuzzleBoxConfig.Dimensions.width - Tiles.Vertical.Dimensions.width, y: Tiles.Vertical.Dimensions.height }
+        position: { x: GRID_SIZE * 3, y: GRID_SIZE * 2 }
     },
     {
         type: Tiles.Horizontal,
-        position: { x: Tiles.Vertical.Dimensions.width, y: Tiles.Vertical.Dimensions.height }
+        position: { x: GRID_SIZE, y: GRID_SIZE * 2 }
     },
     {
         type: Tiles.Goal,
-        position: { x: Tiles.Vertical.Dimensions.width, y: 0 }
+        position: { x: GRID_SIZE, y: 0 }
     },
     {
         type: Tiles.Square,
-        position: { x: 0, y: Tiles.Vertical.Dimensions.height * 2 }
+        position: { x: 0, y: GRID_SIZE * 4 }
     },
     {
         type: Tiles.Square,
-        position: { x: PuzzleBoxConfig.Dimensions.width - Tiles.Square.Dimensions.width, y: Tiles.Vertical.Dimensions.height * 2 }
+        position: { x: GRID_SIZE * 3, y: GRID_SIZE * 4 }
     },
     {
         type: Tiles.Square,
-        position: { x: Tiles.Vertical.Dimensions.width, y: Tiles.Goal.Dimensions.height + Tiles.Horizontal.Dimensions.height }
+        position: { x: GRID_SIZE, y: GRID_SIZE * 3 }
     },
     {
         type: Tiles.Square,
-        position: { x: PuzzleBoxConfig.Dimensions.width - Tiles.Vertical.Dimensions.width - Tiles.Square.Dimensions.width, y: Tiles.Goal.Dimensions.height + Tiles.Horizontal.Dimensions.height }
+        position: { x: GRID_SIZE * 2, y: GRID_SIZE * 3 }
     }
 ];

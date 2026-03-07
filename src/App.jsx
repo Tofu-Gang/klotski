@@ -21,13 +21,13 @@ function App() {
                         <ScoreDisplay value={scoreVisible ? score : "-"} label="Wynik" inline={false} />
                     </div>
                     <PuzzleBox />
+                    <FinishPopup/>
                     <div className="grow basis-1 hidden md:block"><ScoreDisplay value={81} label="Rekord świata" inline={false} /></div>
                 </div>
                 <div className="hidden md:block my-10 ">
                     <Controls scoreVisible={scoreVisible} setScoreVisible={setScoreVisible} reset={reset} textSize="text-5xl" padding="p-3" />
                 </div>
             </div>
-            <FinishPopup/>
         </>
     );
 }
